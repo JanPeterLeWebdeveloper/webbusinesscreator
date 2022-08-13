@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/home";
+
+h1 {
+    color: red;
+
+    &:hover {
+        color:blue;
+    }
+}
