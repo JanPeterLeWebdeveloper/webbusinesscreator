@@ -11,3 +11,33 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/home";
+
+/* Responsive - Phone */
+@media (min-width: 300px) {
+    .container {
+      width: 400px;
+    }
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+    /* Responsive - Tablet */
+  @media (min-width: 700px) {
+    .container {
+      width: 600px;
+    }
+    .cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+   /* Responsive - Computer */
+  @media (min-width: 1000px) {
+    .container {
+      width: 900px;
+    }
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    /* Responsive - Computer */

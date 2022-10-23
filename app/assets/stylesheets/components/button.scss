@@ -1,0 +1,27 @@
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--clr-text, #fff);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    padding: .5em 1.25em;
+    background: var(--clr-accent,#b05d66);
+    border-radius: .25em;
+    -webkit-transition: opacity 250ms linear,
+   -webkit-transform 250ms ease-in-out;
+    transition: opacity 250ms linear,
+   -webkit-transform 250ms ease-in-out;
+    transition: transform 250ms ease-in-out,
+   opacity 250ms linear;
+    transition: transform 250ms ease-in-out,
+   opacity 250ms linear,
+   -webkit-transform 250ms ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  opacity: .9;
+}
