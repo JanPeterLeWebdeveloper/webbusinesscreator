@@ -46,7 +46,17 @@
   position: relative;
   padding-top: 100px;
   padding-left: 100px;
+  padding-bottom:-200px;
 }
 
+.container-right {
+  position: relative;
+  width:600px;
+  height: 800px;
+  padding-top: 100px;
+  padding-left: 100px;
+  margin-left: 200px;
+  margin: 0 auto;
+}
 
-
+//how to stick a text to the right of the page?

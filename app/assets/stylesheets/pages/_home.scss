@@ -71,5 +71,15 @@ a {
     }
 }
 
+.app-business {
+    background-color: white;
+
+    &img {
+        position: relative;
+        float: left;
+       background-color: transparent;
+    }
+}
+
 
 
