@@ -21,7 +21,7 @@
       grid-template-columns: 1fr;
     }
   }
-  
+
     /* Responsive - Tablet */
   @media (min-width: 700px) {
     .container {
@@ -39,5 +39,9 @@
     .cards {
         grid-template-columns: 1fr 1fr 1fr;
       }
+    .container-center {
+
+      flex-direction: row;
+     }
     }
     /* Responsive - Computer */
