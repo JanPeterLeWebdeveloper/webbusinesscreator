@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
-
+  skip_before_action :authenticate_user!, only: %i[home about portfolio services blog contact]
+  # before_filter :authenticate_user!, only: %i[dashboard messages courses]
+  # rails devise if user logged in show only pages
   def home
   end
 
@@ -10,7 +11,7 @@ class PagesController < ApplicationController
   def portfolio
   end
 
-  def offer
+  def services
   end
 
   def blog
@@ -20,3 +21,4 @@ class PagesController < ApplicationController
   end
 
 end
+
