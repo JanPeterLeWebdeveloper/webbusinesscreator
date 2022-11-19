@@ -7,7 +7,8 @@
   display: block;
   flex-grow: 0;
   z-index: 2;
-  
+  scrollbar-shadow-color: black;
+  box-shadow: 1px;
 }
 
 .navbar-lewagon .navbar-collapse {
