@@ -8,3 +8,218 @@ background-color: whitesmoke;
     background-color: transparent;
   }
 }
+
+
+.profile {
+  max-width: 450px;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  margin-left: 150px;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile .picture {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  border: 5px solid blue;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.profile .picture img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.profile .name_role,
+.profile .skills,
+.profile .data,
+.profile .level,
+.profile .bio,
+.profile .social_media {
+  margin-bottom: 20px;
+}
+
+.profile .name_role p {
+  font-weight: 700;
+  font-size: 20px;
+  color: #68728e;
+  margin-bottom: 3px;
+}
+
+.profile .name_role span {
+  font-size: 14px;
+  color: #9fa3af;
+}
+
+.profile .skills span {
+  display: inline-block;
+  border: 1px solid #9fa3af;
+  padding: 6px 15px;
+  border-radius: 25px;
+  min-width: 65px;
+  font-weight: 600;
+  color: #9fa3af;
+}
+
+.profile .skills span.popup_btn {
+  background: #6fbdee;
+  border-color: #6fbdee;
+  color: #fff;
+  cursor: pointer;
+}
+
+.profile .skills span.popup_btn:hover {
+  background: #91d5ff;
+  border-color: #91d5ff;
+}
+
+.profile .level .level_data p {
+  color: #9fa3af;
+}
+
+.profile .level .level_data span {
+  font-weight: 700;
+  color: #68728e;
+}
+
+.profile .level .level_bars {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.profile .level .level_bars .bar_wrap {
+  position: relative;
+  width: 55px;
+  height: 5px;
+  background: #cfebff;
+  margin: 0 5px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.profile .level .level_bars .inner_bar {
+  position: absolute;
+  height: 100%;
+  background: #6fbdee;
+}
+
+.profile .data,
+.profile .social_media {
+  display: flex;
+  background: #e9f6ff;
+  padding: 30px;
+  justify-content: center;
+  color: #68728e;
+}
+
+.profile .data .data_item {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.profile .data_item:hover,
+.profile .social_media .icon:hover {
+  color: #6fbdee;
+}
+
+.profile .data .icon {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.profile .bio {
+  color: #9fa3af;
+  padding: 0 30px;
+  line-height: 26px;
+}
+
+.profile .social_media .icon {
+  font-size: 20px;
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.profile .btn a {
+  display: block;
+  width: 180px;
+  text-align: center;
+  background: #91d5ff;
+  margin: 0 auto;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 3px 1px #6fbdee;
+  transition: box-shadow 0.2s ease;
+}
+
+.profile .btn a:hover {
+  box-shadow: 0 0 1px #6fbdee;
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+.popup.active {
+  left: 0;
+  transition: all 0.2s ease;
+}
+
+.popup .shadow {
+  width: 100%;
+  height: 100%;
+  background: #6fbdee;
+  opacity: 0.7;
+}
+
+.popup .inner_popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+}
+
+.popup .inner_popup .total_skill {
+  position: relative;
+  background: #fff;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 35px 20px;
+}
+
+.popup .inner_popup .total_skill span {
+  padding: 5px 15px;
+  border: 1px solid #9fa3af;
+  color: #9fa3af;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 25px;
+}
+
+.popup .inner_popup .close_btn i {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup .inner_popup .close_btn i:hover {
+  opacity: 0.5;
+}
