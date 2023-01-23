@@ -1,0 +1,47 @@
+<h1 class='project-name'  style="margin-top: 50px">Feed</h1>
+<div data-controller='search'>
+  <div class="d-flex justify-content-center mb-3">
+    <% Project::PROJECT_TAGS.each do |tag| %>
+      <a type="button" tabindex="0" data-action='click->search#tag' class='badge badge-pill badge-light' data-search-target='tag' id="tag">
+
+        <%= tag %>
+
+      </a>
+    <% end %>
+  </div>
+  <div class="feed-wrapper" onload="initEmptySearch()" data-search-target='list'>
+    <% @projects.each do |project| %>
+    <div class='card' style="width: auto;">
+      <%= link_to project_path(project) do %>
+        <% if project.photo.attached?  %>
+          <div class="card-img-top phot" id="photo" style='position:relative;width:auto;height: 200px; overflow: hidden; background-size: cover;background-image: url("https://res.cloudinary.com/antshaw/image/upload/<%= project.photo.key%>")' data-photo-key="<%= project.photo.key%>" src="" alt="Card image cap">
+          </div>
+          <% else %>
+          <div class="card-img-top" style='position:relative;width:auto;height: 200px; overflow: hidden; background-size: cover;background-image: url("/photos/<%= project.project_tag %>.jpg");' src="" alt="Card image cap">
+        </div>
+
+        <% end %>
+
+      <div class="card-body">
+        <div class="body-header d-flex justify-content-between align-items-center mb-3">
+          <div class="col d-flex align-items-center">
+            <% if project.user.photo.attached? %>
+                <%= cl_image_tag project.user.photo.key, class: "avatar avatar-msg menu-icon" %>
+              <% else %>
+                <%= image_tag "https://i.pravatar.cc/150?img=#{project.id}", class: "avatar avatar-msg menu-icon avatar menu-icon"%>
+              <% end %>
+            <h5 class='username'><%= project.name %></h5>
+            </div>
+            <p class='stats'><i class="fas fa-clipboard-list"></i><%= project.tests.count %></p>
+            <p class='stats'><i class="fas fa-clipboard-check"></i>
+               <%= project.tests.where(is_finished: false).count %>
+            </p>
+        </div>
+        <p class='card-text desc'><%= project.description %></p>
+        </div>
+      <% end %>
+    </div>
+   <% end %>
+  </div>
+</div>
+

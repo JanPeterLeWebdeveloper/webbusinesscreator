@@ -18,6 +18,14 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'pages#contact', as: :contact
 
+  # only by logged In # Pages available:
+
+  get 'dashboard', to: 'pages#dashboard', as: :dashboard
+
+  get 'messages', to: 'pages#messages', as: :messages
+
+  get 'courses', to: 'pages#courses', as: :courses
+
 
   # :controllers => { :omniauth_callbacks => "callbacks" }
   # Defines the root path route ("/")
