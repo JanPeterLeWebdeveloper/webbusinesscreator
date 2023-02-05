@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   # before_filter :authenticate_user!, only: %i[dashboard messages courses]
   # rails devise if user logged in show only pages
   def home
-    @projects = policy_scope(Project).last(3)
+
     @disable_sidebar = true
   end
 

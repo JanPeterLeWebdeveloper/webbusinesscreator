@@ -24,4 +24,9 @@ module Webbusinesscreator
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
   end
+  Rails.application.configure do
+  config.imgix = {
+    source: "assets.imgix.net"
+  }
+end
 end
