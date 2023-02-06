@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   # :controllers => { :omniauth_callbacks => "callbacks" }
   # Defines the root path route ("/")
   # root "articles#index"
+  # contactform - email:
+  # resources :contacts, only: [:new, :create ]
+  # get '/contacts', to: 'contacts#new', as: 'contact'
+  get 'contacts/sent'
 end
 
 

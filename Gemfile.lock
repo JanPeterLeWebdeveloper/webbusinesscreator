@@ -149,6 +149,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    mail_form (1.10.0)
+      actionmailer (>= 5.2)
+      activemodel (>= 5.2)
     marcel (1.0.2)
     matrix (0.4.2)
     meta-tags (2.18.0)
@@ -334,6 +337,7 @@ DEPENDENCIES
   imgix-rails
   jbuilder
   jsbundling-rails
+  mail_form (~> 1.9)
   meta-tags
   omniauth-github
   omniauth-rails_csrf_protection

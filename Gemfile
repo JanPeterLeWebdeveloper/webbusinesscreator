@@ -60,6 +60,7 @@ gem 'pundit'
 gem "simple_form", github: "heartcombo/simple_form"
 gem 'meta-tags'
 gem 'imgix-rails'
+gem 'mail_form', '~> 1.9'
 
 gem 'cloudinary', '~> 1.16.0'
 
