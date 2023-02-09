@@ -1,0 +1,31 @@
+<div class="form-container mt-3">
+<div class="row justify-content-center ">
+
+<h1>Add a new Project</h1>
+
+</div>
+<div class="row justify-content-center">
+<div class="booking-form form-fields">
+
+
+
+<%= simple_form_for(@project) do |f| %>
+<div class="row justify-content-center">
+<%= f.input :name %>
+</div>
+<div class="row justify-content-center">
+<%= f.input :description %>
+</div>
+<div class="row justify-content-center">
+<%= f.input :github_url %>
+</div>
+<div class="row justify-content-center">
+  <%= f.input :project_tag, collection: Project::PROJECT_TAGS %>
+</div>
+<div class="row justify-content-center">
+<%= f.submit class: 'btn btn-primary form-btn' %>
+</div>
+<% end %>
+</div>
+</div>
+</div>

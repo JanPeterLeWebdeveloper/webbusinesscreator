@@ -1,0 +1,31 @@
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Project</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style= "width: 80% ; margin: auto;">
+          <%= simple_form_for(@project, remote: true) do |f| %>
+          <%= f.input :name, label_html: {class: "required-class"}%>
+          <%= f.input :description, label_html: {class: "required-class"}%>
+          <%= f.input :github_url, label_html: {class: "required-class"} %>
+          <%= f.input :project_tag, collection: Project::PROJECT_TAGS, label_html: {class: "required-class"} %>
+          <hr>
+          <%= f.submit class: "btn btn-primary purple-round", style: "width: 100%"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+

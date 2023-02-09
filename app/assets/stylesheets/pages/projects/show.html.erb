@@ -1,0 +1,143 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New test</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body">
+        <div style= "width: 80% ; margin: auto;">
+          <%= simple_form_for [@project, @test], url: project_tests_path(@project), remote: true do |f| %>
+          <%= f.input :name, label_html: {class: "required-class"} %>
+          <%= f.input :description, input_html: {rows: 4}, label_html: {class: "required-class"}%>
+          <%= f.input :test_url, label_html: {class: "required-class"} %>
+          <%= f.input :sample_size, label_html: {class: "required-class"}%>
+          <%= f.input :time_limit, as: :string, required: true, input_html: {class: "datepicker"}, label_html: {class: "required-class"}%>
+          <%= f.submit class: "btn btn-primary purple-round", style: "width: 100%; margin-top: 20px" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<%= render 'shared/circle_gradient' %>
+
+<% if @project.user == current_user %>
+<%= button_tag "Create a new test", class: "btn btn-flat", data: { toggle: "modal", target: "#exampleModal"}, style: "margin: -46px 100px 10px 10px;"  %>
+<% end %>
+<div class="container mt-3 project-show-container">
+  <h1 class='project-name'  style="margin-top: 50px"><%= @project.name %></h1>
+  <div class="" style="display: grid; grid-template-columns: 1fr 1fr ;align-content: center;">
+    <div style="padding-right: 20px">
+       <p><strong>Description</strong></p>
+       <p><%= @project.description %></p>
+    </div>
+    <div>
+       <%= link_to "https://#{@project.github_url}", :target => "_blank" do %>
+       <i class="fab fa-github"></i>  <%= @project.github_url %>
+       <% end %>
+       <div>
+        <% if @find_existing_chatroom.nil? && user_signed_in? && @project.user != current_user %>
+          <%= link_to project_chatrooms_path(@project), method: :post, remote: true do %>
+            <i class="fas fa-comment" style="margin: 0; margin-top: 10px"></i> message <%= @project.user.username  %>
+          <% end %>
+        <% elsif @find_existing_chatroom && user_signed_in? && @project.user != current_user %>
+          <%= link_to  chatroom_path(@chatroom) do %>
+            <i class="fas fa-comment" style="margin: 0; margin-top: 10px"></i> message <%= @project.user.username  %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+ </div>
+ <hr style="margin-bottom: 50px">
+</div>
+
+
+<div class="container mt-3">
+
+  <% if @project.tests.empty? && @project.user == current_user %>
+  <div class="container d-flex justify-content-center mt-5" style="margin-top: 350px !important">
+    <h4> Let's create some tests! </h4>
+    <svg width="40" height="40" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: -8px; margin-left: 10px;">
+<path d="M378.142 134.235L317.205 195.171C313.015 188.927 308.226 183.107 302.905 177.794C269.024 143.913 219.274 143.762 179.02 184.016C146.978 216.058 173.034 258.643 181.195 293.258C184.503 307.505 185.666 321.762 186.429 335.051L186.44 335.246L186.453 335.442C187.979 358.632 186.773 368.596 181.849 373.52L179.954 375.414C172.389 375.976 164.726 379.329 158.656 385.399L113.401 430.654C100.904 443.151 99.8908 462.399 111.138 473.646L274.055 636.564C285.303 647.811 304.551 646.798 317.048 634.301L362.302 589.046C368.372 582.976 371.725 575.313 372.287 567.748L374.181 565.854C394.467 545.568 449.938 546.665 492.409 504.194L507.47 489.133C551.694 444.909 549.997 391.936 513.689 354.016C509.919 332.594 497.925 312.101 480.592 298.313C478.167 290.851 474.809 283.725 470.597 277.105L495.804 251.898C527.931 219.77 528.059 166.49 495.804 134.235C463.914 102.345 410.031 102.345 378.142 134.235V134.235ZM461.863 217.957L397.498 282.322C416.948 283.617 437.973 302.41 437.167 328.991C458.997 334.944 470.62 360.059 465.946 376.049C498.227 399.103 502.184 426.537 473.53 455.192L458.469 470.252C426.302 502.419 378.479 499.454 345.561 527.05L220.578 402.067C236.328 382.124 235.953 356.679 234.351 332.296C233.379 315.378 231.823 299.044 227.934 282.322C221.635 255.544 206.743 224.175 212.961 217.957C229.49 201.428 250.297 193.066 268.964 211.734C293.854 236.624 287.826 267.931 300.077 280.182L412.083 168.176C425.111 155.148 448.64 154.953 461.863 168.176C475.28 181.594 475.28 204.539 461.863 217.957V217.957ZM311.391 549.448C320.763 558.821 320.763 574.017 311.391 583.389C302.018 592.762 286.822 592.762 277.45 583.389C268.077 574.017 268.077 558.821 277.45 549.448C286.822 540.075 302.018 540.075 311.391 549.448Z" fill="#2E2AC5"/>
+</svg>
+  </div>
+  <% else %>
+  <% @project.tests.each do |test| %>
+  <div class="project-card">
+    <div class="project-head">
+      <div class="p-flex">
+        <%= link_to test_path(test) do %>
+          <h5><strong><%= test.name %></h5></strong>
+        <% end %>
+        <% unless test.is_finished%>
+          <p><strong><i class="fas fa-circle test-live"></i>Live</strong></p>
+        <% else %>
+          <p><strong><i class="fas fa-clipboard-check test-ended"></i>Ended</strong></p>
+        <% end %>
+      </div>
+      <% if @project.user == current_user %>
+      <div class="p-flex">
+        <div class="project-edit">
+          <% if test.project.user == current_user%>
+          <%= link_to edit_test_path(test),
+          method: :get do %>
+          <i class="fas fa-edit"></i>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="project-delete">
+          <% if test.project.user == current_user %>
+
+          <%= link_to test_path(test),
+          method: :delete,
+          data: { confirm: "Are you sure?" } do%>
+          <i class="far fa-trash-alt trash"></i>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+      <% else %>
+      <% tu = test.test_users.map { |t| t.user } %>
+      <% if tu.include?(current_user)  %>
+      <p>already applied</p>
+      <% elsif tu.include?(current_user) == false && user_signed_in? %>
+      <%= link_to "Apply for test", test_test_users_path(test_id: test.id, user_id: current_user.id), class: "test-btn",method: :post%>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="project-body mb-5">
+      <p>Created on: <%= test.created_at.strftime("%d/%m/%Y") %></p>
+      <p style="margin-top: 10px"><strong>Description</strong></p>
+      <div class="project-body-inside">
+        <div class="test-b-desc">
+          <%= test.description %>
+        </div>
+        <div class="test-b-stats">
+          <div class="count">
+            <h2><%= test.reviews.count %></h2>
+            <p><strong>Reviews</strong></p>
+          </div>
+          <div class="count">
+            <h2><%= test.test_users.where(test_finished: true).count %></h2>
+            <p><strong>Responses</strong></p>
+          </div>
+          <div class="count">
+            <h2><%= (test.time_limit - Date.today).round >= 0 ? (test.time_limit - Date.today).round : 0%></h2>
+            <p><strong> <%= (test.time_limit - Date.today).round == 1 ? "day" : "days" %> left</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+</div>
+

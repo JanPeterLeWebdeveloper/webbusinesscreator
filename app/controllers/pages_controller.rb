@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def portfolio
-    @projects = policy_scope(Project)
+    # @projects = policy_scope(Project)
   end
 
   def services
